@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import A from "./afzalImdadSVGs/A";
-import B from "./afzalImdadSVGs/B";
-import E1 from "./afzalImdadSVGs/E1";
-import E2 from "./afzalImdadSVGs/E2";
-import H from "./afzalImdadSVGs/H";
-import K1 from "./afzalImdadSVGs/K1";
-import K2 from "./afzalImdadSVGs/K2";
-import K3 from "./afzalImdadSVGs/K3";
-import M from "./afzalImdadSVGs/M";
-import N from "./afzalImdadSVGs/N";
-import N2 from "./afzalImdadSVGs/N2";
+import C from "./afzalImdadSVGs/C";
 import U from "./afzalImdadSVGs/U";
+import R from "./afzalImdadSVGs/R";
+import S from "./afzalImdadSVGs/S";
+import E1 from "./afzalImdadSVGs/E1";
+import D from "./afzalImdadSVGs/D";
+import E2 from "./afzalImdadSVGs/E2";
+import V from "./afzalImdadSVGs/V";
+import L from "./afzalImdadSVGs/L";
+import O from "./afzalImdadSVGs/O";
+import P from "./afzalImdadSVGs/P";
+import E3 from "./afzalImdadSVGs/E3";
+import R2 from "./afzalImdadSVGs/R";
 
 const SvgWrapper = ({ SVG, className, ...rest }) => (
   <div
@@ -20,7 +21,6 @@ const SvgWrapper = ({ SVG, className, ...rest }) => (
     <SVG />
   </div>
 )
-
 
 export default function AfzalImdad({ }) {
   const ref = useRef()
@@ -44,52 +44,56 @@ export default function AfzalImdad({ }) {
   return (
     <div ref={ref} className={`ai-afzal-imdad ${mount ? 'ai-afzal-imdad-visible' : ''}`}>
       <SvgWrapper
-        className="ai_svg_M"
-        SVG={M}
+        className="ai_svg_C"
+        SVG={C}
       />
       <SvgWrapper
         className="ai_svg_U"
         SVG={U}
       />
       <SvgWrapper
-        className="ai_svg_N"
-        SVG={N}
+        className="ai_svg_R"
+        SVG={R}
+      />
+      <SvgWrapper
+        className="ai_svg_S"
+        SVG={S}
       />
       <SvgWrapper
         className="ai_svg_E1"
         SVG={E1}
       />
       <SvgWrapper
+        className="ai_svg_D"
+        SVG={D}
+      />
+      <SvgWrapper
         className="ai_svg_E2"
         SVG={E2}
       />
       <SvgWrapper
-        className="ai_svg_B"
-        SVG={B}
+        className="ai_svg_V"
+        SVG={V}
       />
       <SvgWrapper
-        className="ai_svg_K1"
-        SVG={K1}
+        className="ai_svg_L"
+        SVG={L}
       />
       <SvgWrapper
-        className="ai_svg_K2"
-        SVG={K2}
+        className="ai_svg_O"
+        SVG={O}
       />
       <SvgWrapper
-        className="ai_svg_K3"
-        SVG={K3}
+        className="ai_svg_P"
+        SVG={P}
       />
       <SvgWrapper
-        className="ai_svg_H"
-        SVG={H}
+        className="ai_svg_E3"
+        SVG={E3}
       />
       <SvgWrapper
-        className="ai_svg_A"
-        SVG={A}
-      />
-      <SvgWrapper
-        className="ai_svg_N2"
-        SVG={N2}
+        className="ai_svg_R2"
+        SVG={R2}
       />
     </div>
   )

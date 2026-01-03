@@ -1,23 +1,19 @@
 /** @type {import('next').NextConfig} */
-
-const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
+
+// Configure the PWA plugin (first call) and pass Next config separately.
+const withPWA = require("next-pwa")({
+  dest: "public",
+  runtimeCaching,
+  disable: process.env.NODE_ENV === "development", // avoid SW in dev
+});
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    images: {
-      loader: 'imgix',
-      path: 'public/assets/portfolio.gif',
-      unoptimized: true,
-    },
+  images: {
+    unoptimized: true,
   },
-  pwa: {
-    dest: "public",
-    runtimeCaching,
-  },
-  output: "export"
-}
+};
 
 module.exports = withPWA(nextConfig);

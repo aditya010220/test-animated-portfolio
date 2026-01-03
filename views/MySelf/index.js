@@ -4,27 +4,18 @@ import HoverImage from '../../components/HoverImage'
 import ViewsTitle from '../../components/ViewsTitle'
 import Helm from '../../components/SVGs/Helm'
 import { useParallax } from 'react-scroll-parallax'
+import { techLogos } from '../../utils/techLogos'
 
 const Paragraph = ({ text }) => (
-    <div data-aos="zoom-in-left" className='ai-myself-paragraph'>
+    <p data-aos="zoom-in-left" className='ai-myself-paragraph'>
         {text}
-    </div>
+    </p>
 )
 
-const List = ({ items }) => (
-    <div className='col'>
-        {(items || []).map(item => (
-            <div data-aos="zoom-in-left" className='ai-myself-skill' key={item}>
-                {item}
-            </div>
-        ))}
-    </div>
-)
-
-const ListParent = ({ list1, list2 }) => (
-    <div className='ai-myself-list-parent row'>
-        <List items={list1} />
-        <List items={list2} />
+const TechLogoItem = ({ logo, name }) => (
+    <div className='ai-tech-logo-item'>
+        <img src={logo} alt={name} className='ai-tech-logo-img' loading='lazy' />
+        <span className='ai-tech-logo-name'>{name}</span>
     </div>
 )
 
@@ -40,48 +31,44 @@ const MySelf = ({ data: {
         easing: [1, 1.5, 0.5, 2],
         rotate: [0, (360 * 1)],
     });
+
     return (
         <div className='ai-myself'>
-            <div
-                ref={ref}
-                className='ai-myself-settings-icon'>
+            <div ref={ref} className='ai-myself-settings-icon'>
                 <Helm />
             </div>
             <div className='container'>
-                <div
-                    data-aos="fade-down-left"
-                    className='ai-myself-container'>
-                    <ViewsTitle
-                        text={heading}
-                    />
-                    <div className='row justify-content-center'>
-                        <div className='col-12 col-md-8'>
-                            <div className=''>
-                                {(paragraphs || []).map((text, i) => (
-                                    <Paragraph
-                                        key={i}
-                                        text={text}
-                                    />
-                                ))}
-                                <ListParent
-                                    list1={techList1}
-                                    list2={techList2}
-                                />
-                            </div>
+                <div data-aos="fade-down-left" className='ai-myself-container'>
+                    <ViewsTitle text={heading} />
+                    
+                    <div className='ai-myself-content'>
+                        <div className='ai-myself-text-col'>
+                            {(paragraphs || []).slice(0, -1).map((text, i) => (
+                                <Paragraph key={i} text={text} />
+                            ))}
                         </div>
-                        <div className='col-12 col-md-4 mt-5 mt-md-0'>
-                            <div
-                                data-aos="zoom-in-right"
-                                className='ai-myself-profile-wrapper d-flex justify-content-center'>
+                        
+                        <div className='ai-myself-image-col'>
+                            <div data-aos="zoom-in-right" className='ai-myself-profile-wrapper'>
                                 <HoverImage
                                     showFilter
                                     showBorder
                                     imageClassName='ai-myself-profile'
                                     parentClassName='ai-myself-profile-parent'
                                     src={image}
-                                // layout="fill"
                                 />
                             </div>
+                        </div>
+                    </div>
+
+                    <div className='ai-myself-tech-section'>
+                        <h3 data-aos="zoom-in-left" className='ai-tech-section-title'>
+                            {paragraphs && paragraphs[paragraphs.length - 1]}
+                        </h3>
+                        <div className='ai-tech-logos-grid'>
+                            {techLogos.map((item, index) => (
+                                <TechLogoItem key={index} {...item} />
+                            ))}
                         </div>
                     </div>
                 </div>

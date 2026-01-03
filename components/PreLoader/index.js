@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import AfzalImdad from '../AfzalImdad';
 
 const PreLoader = () => {
     const [loader, handleLoader] = useState(true);
@@ -15,7 +14,12 @@ const PreLoader = () => {
         <div className={`ai-pre-loader ${loader ? 'ai-pre-loader-enabled' : 'ai-pre-loader-disabled'}`}>
             <div className='ai-pre-loader-boarder' />
             <div className='ai-pre-loader-container'>
-                <AfzalImdad />
+                <div className='ai-welcome-content'>
+                    <h1 className='ai-welcome-title'>Welcome to my</h1>
+                    <h2 className='ai-welcome-subtitle'>CursedWorld</h2>
+                    <div className='ai-welcome-divider'></div>
+                    <p className='ai-welcome-tagline'>Explore my creative journey</p>
+                </div>
             </div>
         </div>
     )

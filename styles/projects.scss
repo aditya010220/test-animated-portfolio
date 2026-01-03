@@ -1,5 +1,17 @@
 @import "./theme.scss";
 
+@keyframes live-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .ai-projects {
   width: 100vw;
   min-height: 100vh;
@@ -89,6 +101,66 @@
         line-height: 1;
         font-size: 13px;
       }
+
+      .ai-projects-status-wrapper {
+        margin: 15px 0px 20px;
+
+        .ai-project-status-link {
+          text-decoration: none;
+          display: inline-flex;
+
+          &:hover .ai-project-status.clickable {
+            background-color: rgba(0, 208, 132, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 208, 132, 0.2);
+          }
+        }
+
+        .ai-project-status {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          border: 1px solid;
+          width: fit-content;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+          .status-icon {
+            font-size: 14px;
+            line-height: 1;
+          }
+
+          .status-date {
+            font-size: 11px;
+            margin-left: 4px;
+          }
+
+          &.status-live {
+            border-color: #00d084;
+            color: #00d084;
+
+            .status-icon {
+              color: #00d084;
+              animation: live-pulse 2s infinite;
+            }
+
+            &.clickable {
+              cursor: pointer;
+            }
+          }
+
+          &.status-coming-soon {
+            border-color: $themeColor4;
+            color: $themeColor4;
+          }
+        }
+      }
+
     }
 
     .ai-projects-text-side-left {
@@ -96,13 +168,29 @@
       flex-direction: column;
       align-items: flex-end;
       text-align: right;
+
+      .ai-projects-status-wrapper {
+        justify-content: flex-end;
+      }
     }
 
-    .ai-projects-text-side-left {
+    .ai-projects-text-side-right {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .ai-projects-text-side-left,
+      .ai-projects-text-side-right {
+        text-align: left;
+        align-items: flex-start;
+
+        .ai-projects-status-wrapper {
+          justify-content: flex-start;
+        }
+      }
     }
   }
 }

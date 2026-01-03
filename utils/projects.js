@@ -10,7 +10,11 @@ const projects = {
                 'React Js',
                 'Express Js',
                 'Mongodb',
-            ]
+            ],
+            status: 'live',
+            liveUrl: 'https://piaic.org',
+            githubUrl: 'https://github.com/piaic',
+            deployedDate: 'Sep 2022'
         },
         {
             image: '/assets/projects/digitalplattform.png',
@@ -22,7 +26,11 @@ const projects = {
                 'Express Js',
                 'GraphQl/Apollo',
                 'Mongodb',
-            ]
+            ],
+            status: 'live',
+            liveUrl: '#',
+            githubUrl: '#',
+            deployedDate: 'Aug 2022'
         },
         {
             image: '/assets/projects/declinica.png',
@@ -32,7 +40,11 @@ const projects = {
             techs: [
                 'React Js',
                 'Web3 Js',
-            ]
+            ],
+            status: 'live',
+            liveUrl: '#',
+            githubUrl: '#',
+            deployedDate: 'Jun 2023'
         },
         {
             image: '/assets/projects/rolazdoro.png',
@@ -42,7 +54,11 @@ const projects = {
             techs: [
                 'React Js',
                 'Web3 Js',
-            ]
+            ],
+            status: 'live',
+            liveUrl: '#',
+            githubUrl: '#',
+            deployedDate: 'May 2023'
         },
         {
             image: '/assets/projects/chainracers.png',
@@ -52,7 +68,10 @@ const projects = {
             techs: [
                 'React Js',
                 'Web3 Js',
-            ]
+            ],
+            status: 'coming-soon',
+            githubUrl: '#',
+            deployedDate: 'Dec 2024'
         }
     ]
 }

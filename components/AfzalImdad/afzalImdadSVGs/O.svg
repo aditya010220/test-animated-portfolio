@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">
+	<title>O</title>
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: none } 
+	</style>
+	<g id="Folder 1">
+		<path id="Shape O" class="s0" d="m500 150c190 0 300 120 300 350 0 230-110 350-300 350-190 0-300-120-300-350 0-230 110-350 300-350zm0 600c110 0 170-80 170-250 0-170-60-250-170-250-110 0-170 80-170 250 0 170 60 250 170 250z"/>
+	</g>
+	<path id="Layer 2" class="s1" d="m0 0h1000v1000h-1000z"/>
+</svg>

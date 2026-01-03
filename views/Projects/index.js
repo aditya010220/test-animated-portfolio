@@ -14,6 +14,47 @@ const WindowImage = ({ src }) => (
 
 const getSide = (index) => index % 2 ? 'left' : 'right'
 
+const ProjectStatusBadge = ({ status, deployedDate, liveUrl }) => {
+    const statusConfig = {
+        'live': {
+            label: 'Live',
+            className: 'status-live',
+            icon: '●'
+        },
+        'coming-soon': {
+            label: 'Coming Soon',
+            className: 'status-coming-soon',
+            icon: '◌'
+        }
+    }
+    
+    const config = statusConfig[status] || statusConfig['coming-soon']
+    const isClickable = status === 'live' && liveUrl && liveUrl !== '#'
+    
+    const Badge = (
+        <div className={`ai-project-status ${config.className} ${isClickable ? 'clickable' : ''}`}>
+            <span className='status-icon'>{config.icon}</span>
+            <span className='status-label'>{config.label}</span>
+            {deployedDate && <span className='status-date'>{deployedDate}</span>}
+        </div>
+    )
+
+    if (isClickable) {
+        return (
+            <a 
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className='ai-project-status-link'
+            >
+                {Badge}
+            </a>
+        )
+    }
+
+    return Badge
+}
+
 const SingleProject = (props) => {
     const { image, index } = props
     const side = getSide(index);
@@ -36,7 +77,7 @@ const SingleProject = (props) => {
 }
 
 const ProjectTextSide = (props) => {
-    const { label, title, description, techs, index, image } = props
+    const { label, title, description, techs, index, image, status, deployedDate, liveUrl } = props
     const side = getSide(index);
     return (
         <div
@@ -48,6 +89,13 @@ const ProjectTextSide = (props) => {
             <div
                 data-aos={`zoom-in-${side}`}
                 className='ai-projects-text-title'>{title}</div>
+            
+            {status && (
+                <div data-aos={`zoom-in-${side}`} className='ai-projects-status-wrapper'>
+                    <ProjectStatusBadge status={status} deployedDate={deployedDate} liveUrl={liveUrl} />
+                </div>
+            )}
+            
             <div
                 data-aos={`zoom-in-${side}`}
                 className='ai-projects-text-description'>

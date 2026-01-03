@@ -18,58 +18,160 @@
   }
 
   .ai-myself-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: auto;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 100px 0 100px 0;
+    padding: 80px 20px;
 
-    .ai-myself-paragraph {
-      margin: 0px 0px 15px;
-      font-size: 16px;
-      line-height: 24px;
-      color: $themeColor3;
+    .ai-myself-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 70px;
+
+      @media only screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .ai-myself-text-col {
+        order: 1;
+
+        @media only screen and (max-width: 1024px) {
+          order: 2;
+        }
+
+        .ai-myself-paragraph {
+          margin: 0 0 16px 0;
+          font-size: 16px;
+          line-height: 26px;
+          color: $themeColor3;
+          letter-spacing: 0.3px;
+          font-weight: 400;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .ai-myself-image-col {
+        order: 2;
+        display: flex;
+        justify-content: center;
+
+        @media only screen and (max-width: 1024px) {
+          order: 1;
+        }
+
+        .ai-myself-profile-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .ai-myself-profile-parent {
+          max-width: 300px;
+          max-height: 300px;
+          width: 100%;
+          height: auto;
+        }
+
+        .ai-myself-profile {
+          max-width: 300px;
+          width: 100%;
+          height: auto;
+        }
+
+        @media only screen and (max-width: 800px) {
+          .ai-myself-profile-parent {
+            max-width: 250px;
+          }
+
+          .ai-myself-profile {
+            max-width: 250px;
+          }
+        }
+      }
     }
 
-    .ai-myself-skill {
-      color: $themeColor4;
-      font-size: 12px;
-      margin-bottom: 10px;
-      line-height: 24px;
+    .ai-myself-tech-section {
+      border-top: 1px solid rgba($themeColor4, 0.3);
+      padding-top: 50px;
 
-      &::before {
-        content: "▹";
+      .ai-tech-section-title {
+        font-size: 16px;
         color: $themeColor3;
-        font-size: 14px;
-        line-height: 12px;
-        margin-right: 10px;
-      }
-    }
-
-    .ai-myself-profile-wrapper {
-    }
-
-    .ai-myself-profile-parent {
-      max-width: 300px;
-      max-height: 300px;
-      width: 100%;
-      height: 100%;
-    }
-
-    .ai-myself-profile {
-      max-width: 300px;
-      width: 100%;
-    }
-
-    @media only screen and (max-width: 800px) {
-      .ai-myself-profile-parent {
-        max-width: 250px;
+        margin-bottom: 35px;
+        line-height: 24px;
+        font-weight: 500;
+        letter-spacing: 0.3px;
       }
 
-      .ai-myself-profile {
-        max-width: 250px;
+      .ai-tech-logos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 28px;
+
+        @media only screen and (max-width: 768px) {
+          grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+          gap: 20px;
+        }
+
+        @media only screen and (max-width: 480px) {
+          grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+          gap: 14px;
+        }
+
+        .ai-tech-logo-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          padding: 16px 12px;
+          border-radius: 8px;
+          border: 1px solid transparent;
+          transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+          cursor: pointer;
+          text-align: center;
+
+          &:hover {
+            border-color: $themeColor4;
+            background: rgba($themeColor4, 0.03);
+            transform: translateY(-6px);
+
+            .ai-tech-logo-img {
+              filter: drop-shadow(0 4px 12px rgba($themeColor4, 0.25));
+            }
+
+            .ai-tech-logo-name {
+              color: $themeColor4;
+            }
+          }
+
+          .ai-tech-logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            object-position: center;
+            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            filter: brightness(1) contrast(1);
+          }
+
+          .ai-tech-logo-name {
+            font-size: 11px;
+            color: $themeColor3;
+            transition: color 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            line-height: 1.2;
+          }
+        }
       }
     }
   }
